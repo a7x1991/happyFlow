@@ -45,36 +45,39 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        
+        await expect(this.shoppingCart).toBeExisting();
+
     }
 
     async addBackpack() {
-        await expect(this.addToCartBackpack).toBeExisting()
+        await expect(this.addToCartBackpack).toBeExisting();
         await this.addToCartBackpack.click();
         
     }
 
     async clickShoppingCart() {
-        await expect(this.shoppingCart).toBeExisting()
+        await expect(this.shoppingCart).toBeExisting();
         await this.shoppingCart.click();
         
     }
 
     async clickCheckOut() {
-        await expect(this.CheckOut).toBeExisting()
+        await expect(this.CheckOut).toBeExisting();
         await this.CheckOut.click();
     }
 
     async clickHamburgerMenu() {
-        await expect(this.BurgerMenu).toBeExisting()
+        await expect(this.BurgerMenu).toBeExisting();
         await this.BurgerMenu.click();
+        await expect(this.allItems).toBeClickable();
 
     }
 
     async clickLogOut() {
-        await expect(this.logOut).toBeExisting()
+        await expect(this.logOut).toBeExisting();
         await this.logOut.click();
     }
+
     
 
     open () {
