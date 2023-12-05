@@ -28,45 +28,45 @@ class LoginPage extends Page {
     }
 
     get BurgerMenu () {
-        return $('#react-burger-menu-btn')
+        return $('#react-burger-menu-btn');
     }
 
     get logOut () {
-        return $('#logout_sidebar_link')
+        return $('#logout_sidebar_link');
     }
 
     get allItems () {
-        return $('#inventory_sidebar_link')
+        return $('#inventory_sidebar_link');
     }
 
-
     async login (username, password) {
-
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
         await expect(this.shoppingCart).toBeExisting();
-
     }
 
     async addBackpack() {
+        await expect(this.addToCartBackpack).toBeExisting()
         await expect(this.addToCartBackpack).toBeExisting();
         await this.addToCartBackpack.click();
-        
     }
 
     async clickShoppingCart() {
+        await expect(this.shoppingCart).toBeExisting()
         await expect(this.shoppingCart).toBeExisting();
         await this.shoppingCart.click();
-        
+
     }
 
     async clickCheckOut() {
+        await expect(this.CheckOut).toBeExisting()
         await expect(this.CheckOut).toBeExisting();
         await this.CheckOut.click();
     }
 
     async clickHamburgerMenu() {
+        await expect(this.BurgerMenu).toBeExisting()
         await expect(this.BurgerMenu).toBeExisting();
         await this.BurgerMenu.click();
         await expect(this.allItems).toBeClickable();
@@ -74,14 +74,15 @@ class LoginPage extends Page {
     }
 
     async clickLogOut() {
+        await expect(this.logOut).toBeExisting()
         await expect(this.logOut).toBeExisting();
         await this.logOut.click();
     }
 
     
 
-    open () {
-        return super.open();
+    openUrl () {
+        return super.openUrl();
     }
 }
 
