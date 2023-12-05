@@ -39,6 +39,14 @@ class LoginPage extends Page {
         return $('#inventory_sidebar_link');
     }
 
+    get errorButton () {
+        return $('.error-button');
+    }
+
+    get continueButton () {
+        return $('#continue')
+    }
+
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
@@ -48,26 +56,22 @@ class LoginPage extends Page {
 
     async addBackpack() {
         await expect(this.addToCartBackpack).toBeExisting()
-        await expect(this.addToCartBackpack).toBeExisting();
         await this.addToCartBackpack.click();
     }
 
     async clickShoppingCart() {
         await expect(this.shoppingCart).toBeExisting()
-        await expect(this.shoppingCart).toBeExisting();
         await this.shoppingCart.click();
 
     }
 
     async clickCheckOut() {
         await expect(this.CheckOut).toBeExisting()
-        await expect(this.CheckOut).toBeExisting();
         await this.CheckOut.click();
     }
 
     async clickHamburgerMenu() {
         await expect(this.BurgerMenu).toBeExisting()
-        await expect(this.BurgerMenu).toBeExisting();
         await this.BurgerMenu.click();
         await expect(this.allItems).toBeClickable();
 
@@ -75,10 +79,26 @@ class LoginPage extends Page {
 
     async clickLogOut() {
         await expect(this.logOut).toBeExisting()
-        await expect(this.logOut).toBeExisting();
         await this.logOut.click();
     }
 
+    async loginFail (username, password) {
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+        await expect(this.errorButton).toBeExisting();
+    }
+
+    async clickContinue() {
+        await this.continueButton.click();
+        await expect(this.errorButton).toBeExisting()
+
+
+    }
+    
+    
+    
+    
     
 
     openUrl () {
